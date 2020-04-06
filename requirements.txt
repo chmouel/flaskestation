@@ -1,0 +1,7 @@
+gunicorn
+matplotlib
+numpy
+Pillow
+PyPDF2
+qrcode
+flask

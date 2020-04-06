@@ -1,0 +1,21 @@
+{
+  "profile": {
+    "motifs": ["sante", "travail", "courses", "sport", "famille"],
+    "first_name": "Hello",
+    "last_name": "Moto",
+    "birth_date": "01/01/1970",
+    "birth_city": "Hello",
+    "current_city": "Moto",
+    "address": "1 Rue de God"
+  },
+  "profile2": {
+    "motifs": ["sante", "travail", "courses", "sport", "famille"],
+    "first_name": "Popo",
+    "last_name": "Robot",
+    "birth_date": "01/01/1970",
+    "birth_city": "Coco",
+    "current_city": "Soso",
+    "address": "1 Rue de Momo"
+  }
+
+}
