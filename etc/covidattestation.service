@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 User=pi
-WorkingDirectory=/home/pi/GIT/attestationnumeriquecovid-19/
-ExecStart=/home/pi/GIT/attestationnumeriquecovid-19/.venv/bin/gunicorn --log-level=debug -b localhost:8000 -w 2 web:app
+WorkingDirectory=/home/pi/GIT/flaskestation
+ExecStart=/home/pi/GIT/flaskestation/.venv/bin/gunicorn --log-level=debug -b localhost:8000 -w 2 web:app
 Restart=always
 
 [Install]
