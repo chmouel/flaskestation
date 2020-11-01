@@ -2,6 +2,9 @@
 
 Flask based generateur d'attestation covid
 
+
+Basé sur https://github.com/tdopierre/AttestationNumeriqueCOVID-19
+
 ## Config
 Regarder le fichier [`config.json.example`](./covid.json.example) et copier le a `config.json` avec les bon profiles
 
