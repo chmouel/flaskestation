@@ -2,6 +2,7 @@ import datetime
 import json
 import logging
 import os
+import sys
 import time
 
 import matplotlib.pyplot as plt
@@ -223,6 +224,32 @@ def index():
                            config=config,
                            motif_emojis=MOTIF_EMOJIS)
 
+
+def cli(user, motif):
+    profile_config = get_config()
+    if not profile_config:
+        return "Configuration error! no config.json"
+
+    leave_date = datetime.datetime.now().strftime("%d/%m/%Y")
+    leave_hour = (
+        datetime.datetime.now() -
+        datetime.timedelta(minutes=HOW_MANY_MINUTES_AGO)).strftime("%H:%M")
+
+    pdfname = f"{user}-{motif}-{leave_date.replace('/', '_')}-{leave_hour}"
+    gen({
+        **profile_config[user],
+        "motif": motif,
+        "leave_date": leave_date,
+        "leave_hour": leave_hour,
+        "pdfname": pdfname,
+    })
+
+    fpath = os.path.join(app.root_path, 'static', "pdfs", f"{pdfname}.pdf")
+    os.system(f"open {fpath}")
+
+
+if __name__ == '__main__':
+    cli(sys.argv[1], sys.argv[2])
 
 if __name__ != '__main__':
     gunicorn_logger = logging.getLogger('gunicorn.error')
