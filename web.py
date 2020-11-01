@@ -8,7 +8,8 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 import qrcode
-from flask import Flask, redirect, request, send_from_directory, render_template
+from flask import (Flask, redirect, render_template, request,
+                   send_from_directory)
 from PIL import Image, ImageDraw, ImageFont
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
@@ -42,7 +43,10 @@ def gen(config):
     # Erase cross
     img_array[824:849, 158:181] = 255
 
-    # # Erase Current date
+    # Erase current city
+    img_array[1366:1400, 216:400] = 255
+
+    # Erase Current date
     img_array[1418:1437, 187:303] = 255
 
     # # Erase Current time
@@ -111,9 +115,10 @@ def gen(config):
     draw.text((244, 331), f'{config["birth_date"]}', (0, 0, 0), font=font)
     draw.text((620, 331), f'{config["birth_city"]}', (0, 0, 0), font=font)
     draw.text((280, 376), f'{config["address"]}', (0, 0, 0), font=font)
+    draw.text((225, 1372), f'{config["current_city"]}', (0, 0, 0), font=font)
 
-    draw.text((190, 1420), config['leave_date'], (0, 0, 0), font=font)
-    draw.text((551, 1420), config['leave_hour'], (0, 0, 0), font=font)
+    draw.text((200, 1418), config['leave_date'], (0, 0, 0), font=font)
+    draw.text((551, 1418), config['leave_hour'], (0, 0, 0), font=font)
 
     plt.imsave("tmp/pass1-page1.pdf", np.array(img), format="pdf")
 
