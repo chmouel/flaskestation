@@ -7,7 +7,7 @@ Site web de generateur d'attestation covid pour plusieurs profiles
 Basé sur https://github.com/tdopierre/AttestationNumeriqueCOVID-19
 
 ## Config
-Regarder le fichier [`config.json.example`](./covid.json.example) et copier le a `config.json` avec les bon profiles
+Regarder le fichier [`config.json.example`](./config.json.example) et copier le a `config.json` avec les bon profiles
 
 Mettre une image qui represente le profile dans `static/profiles/${profile}.jpg` (ou png), `${profile}` et bien sure a remplacer par le nom de profile.
 
@@ -54,3 +54,5 @@ httpasswd et un SSL de configured :
         proxy_pass http://127.0.0.1:8000;
     }
 ```
+
+
