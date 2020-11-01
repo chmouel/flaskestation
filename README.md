@@ -8,14 +8,14 @@ Basé sur https://github.com/tdopierre/AttestationNumeriqueCOVID-19
 ## Config
 Regarder le fichier [`config.json.example`](./covid.json.example) et copier le a `config.json` avec les bon profiles
 
-Mettre une image qui represent le profile dans static/profiles/${profile}.jpg (ou png), ${profile} et bien sure a remplacer au nom de profile.
+Mettre une image qui represente le profile dans `static/profiles/${profile}.jpg` (ou png), `${profile}` et bien sure a remplacer par le nom de profile.
 
 ## Install
 
 Faire un virtualenv et installer les reqs :
 
 ```shell
-python3 -m virtualenv .venv
+python3 -m virtualenv -p python3 .venv
 .venv/bin/pip3 install -r requirements.txt
 ```
 
