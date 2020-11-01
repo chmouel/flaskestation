@@ -29,10 +29,6 @@ MOTIF_EMOJIS = {
 
 
 def gen(config):
-    # ---------------------------
-    #  First Page (All fields to fill)
-    # ---------------------------
-
     img = Image.open("tmp/page1-template.png")
     img_array = np.array(img)
 
@@ -63,7 +59,6 @@ def gen(config):
         image_draw.text((5, -2), 'X', (0, 0, 0), font=image_font)
         return np.array(image)
 
-    # # travail-courses-sante-famille-sport-judiciaire-missions
     img_array = np.array(img)
     cross = get_cross()
     if "travail" in config['motif']:
@@ -74,10 +69,15 @@ def gen(config):
         img_array[742:762, 159:179] = cross
     if "famille" in config['motif']:
         img_array[826:846, 159:179] = cross
-    # if "handicap" in config['motif]:
-    #     img_array[905:925, 155:175] = cross
     if "sport" in config['motif']:
         img_array[990:1010, 159:179] = cross
+
+    # Grosse flemme de tracker les pixels position et hopefully j'ai pas
+    # handicap ou d'ennuis judiciaire de prevu, patch welcome si vous en avez
+    # besoin ;)
+    #
+    # if "handicap" in config['motif]:
+    #     img_array[905:925, 155:175] = cross
     # if "judiciaire" in config['motif']:
     #     img_array[1110:1140, 155:175] = cross
     # if "missions" in config['motif]:
@@ -111,13 +111,8 @@ def gen(config):
     draw.text((620, 331), f'{config["birth_city"]}', (0, 0, 0), font=font)
     draw.text((280, 376), f'{config["address"]}', (0, 0, 0), font=font)
 
-    # draw.text((228, 1268), f"{args.current_city}", (0, 0, 0), font=font)
     draw.text((190, 1420), config['leave_date'], (0, 0, 0), font=font)
     draw.text((551, 1420), config['leave_hour'], (0, 0, 0), font=font)
-
-    # draw.text((948, 1443),
-    #           datetime.datetime.now().strftime("%d/%m/%Y à %H:%M"), (0, 0, 0),
-    #           font=font_small)
 
     plt.imsave("tmp/pass1-page1.pdf", np.array(img), format="pdf")
 
