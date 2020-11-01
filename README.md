@@ -8,8 +8,11 @@ Regarder le fichier [`config.json.example`](./covid.json.example) et copier le a
 Mettre une image qui represent le profile dans static/profiles/${profile}.jpg (ou png), ${profile} et bien sure a remplacer au nom de profile.
 
 ## Install
+
+Faire un virtualenv et installer les reqs :
+
 ```shell
-virtualenv .venv
+python3 -m virtualenv .venv
 .venv/bin/pip3 install -r requirements.txt
 ```
 
