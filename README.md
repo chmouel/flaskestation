@@ -1,7 +1,8 @@
 # Generateur d'attestation covid par Profile
 
-Flask based generateur d'attestation covid
+Site web de generateur d'attestation covid pour plusieurs profiles
 
+![Screenshot](.github/screenshot.png?raw=true "Screenshot")
 
 Basé sur https://github.com/tdopierre/AttestationNumeriqueCOVID-19
 
