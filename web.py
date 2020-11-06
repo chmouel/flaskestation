@@ -167,6 +167,10 @@ def attestation(user, motif):
     if not profile_config:
         return "Configuration error! no config.json"
 
+    reqloc = request.args.get('loc')
+    if reqloc:
+        profile_config[user]['current_city'] = reqloc
+
     reqdate = request.args.get('ds')
     if reqdate:
         ditimeparsed = datetime.datetime.strptime(reqdate, '%Y-%m-%d')
@@ -183,6 +187,7 @@ def attestation(user, motif):
             datetime.timedelta(minutes=HOW_MANY_MINUTES_AGO)).strftime("%H:%M")
 
     pdfname = f"{user}-{motif}-{leave_date.replace('/', '_')}-{leave_hour}"
+
     gen({
         **profile_config[user],
         "motif": motif,
